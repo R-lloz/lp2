@@ -1,0 +1,306 @@
+html {
+	font-size: calc(10 * 100vw / 390);
+    scroll-behavior: smooth;
+}
+@media (min-width: 768px) {
+    html {
+    	font-size: calc(10 * 100vw / 1200);
+    }
+}
+@media (min-width: 1200px) {
+    html {
+        font-size: 62.5%;
+    }
+}
+body {
+    font-family: 'Noto Serif JP', serif;
+    color: #000;
+    line-height: 2.286;
+}
+
+// =====================================================================
+// MARK:ヘッダー
+// =====================================================================
+.header {
+    height: 54.8rem;
+}
+@media screen and (min-width: 768px) {
+    .header {
+        height: 72rem;
+    }
+    .header__container {
+        position: relative;
+    }
+}
+.header__cover {
+    height: 45rem;
+    background-image: url('/assets/image/img_mainVisual_sp.jpg');
+    background-position: center;
+    background-size: cover;
+    padding-top: 2.6rem;
+}
+@media screen and (min-width: 768px) {
+    .header__cover {
+        height: 72rem;
+        background-image: url('/assets/image/img_mainVisual_pc.jpg');
+        padding-top: 3.2rem;
+    }
+}
+.header__logo-container {
+    display: block;
+    text-align: center;
+}
+.header__logo {
+    width: 14rem;
+    height: 2.4rem;;
+}
+@media screen and (min-width: 768px) {
+    .header__logo {
+        width: 16.2rem;
+        height: 3.4rem;
+    }
+}
+.header__content {
+    margin-top: -3.1rem;
+    padding-left: 2.3rem;
+}
+@media screen and (min-width: 768px) {
+    .header__content {
+        width: 120rem;
+        margin: -45rem auto 0;
+        padding-left: 7.3rem;
+    }
+}
+.header__title {
+    font-family: 'Marcellus', serif;
+    font-size: 4.1rem;
+    letter-spacing: 1.2rem;
+    line-height: 1.24;
+}
+@media screen and (min-width: 768px) {
+    .header__title {
+        font-size: 5rem;
+        letter-spacing: 1.5rem;
+        line-height: 1.34;
+    }
+}
+.header__description {
+    font-size: 2rem;
+    letter-spacing: 0.6rem;
+}
+@media screen and (min-width: 768px) {
+    .header__description {
+        font-size: 2.5rem;
+        letter-spacing: 0.8rem;
+        letter-spacing: 0.75rem;
+        line-height: 2;
+    }
+}
+
+// =====================================================================
+// MARK:メイン
+// =====================================================================
+// MARK:商品購入
+.apply {
+    height: 37rem;
+    padding: 5.8rem 0 5rem 0;
+}
+@media screen and (min-width: 768px) {
+    .apply {
+        height: 24.3rem;
+        padding: 5rem 0 5rem 0;
+    }
+}
+.apply__container {
+    height: 100%;
+    width: 35.8rem;
+    margin: 0 auto;
+    padding: 2.5rem 0 3.4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f4ff;
+}
+.apply__product {
+    text-align: center;
+}
+@media screen and (min-width: 768px) {
+    .apply__container {
+        width: 100rem;
+        padding: 0 4.8rem;
+        flex-direction: row;
+        align-items: center;
+        column-gap: 6rem;
+    }
+    .apply__product {
+        display: flex;
+        flex-direction: column;
+    }
+}
+.apply__product-name {
+    font-size: 1.8rem;
+    font-weight: semibold;
+    line-height: 1;
+    letter-spacing: 0.2rem;
+}
+@media screen and (min-width: 768px) {
+    .apply__product-name {
+        font-size: 2.4rem;
+        line-height: 1;
+        letter-spacing: 0.25rem;
+    }
+}
+.apply__pricing {
+    font-size: 1.6rem;
+    line-height: 1;
+    margin-top: 1.1rem;
+}
+@media screen and (min-width: 768px) {
+    .apply__pricing {
+        font-size: 1.6rem;
+        line-height: 1;
+        margin-top: 1.5rem;
+        letter-spacing: 0.15rem;
+        text-align: left;
+    }
+}
+.apply__btn-list {
+    margin-top: 2.3rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+@media screen and (min-width: 768px) {
+    .apply__btn-list {
+        flex-direction: row;
+        column-gap: 3.2rem;
+        margin-top: 0rem;
+    }
+}
+.link-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30rem;
+    height: 5.8rem;
+    border-radius: 2.9rem;
+    font-size: 1.8rem;
+    font-weight: semibold;
+    line-height: 1;
+    text-decoration: none;
+}
+.link-btn--blue {
+    background-color: #46c4db;
+    color: #fff;
+}
+.link-btn--mint {
+    background-color: #5dd5ab;
+    color: #fff;
+}
+
+// MARK:商品説明
+.product {
+    height: 68rem;
+    width: 100%;
+    padding-top: 5.3rem;
+    background-image: url('/assets/image/img_product_sp.jpg');
+    background-position: center;
+    background-size: cover;
+}
+@media screen and (min-width: 768px) {
+    .product {
+        height: 55rem;
+        background-image: url('/assets/image/img_product_pc.jpg');
+        padding-top: 0;
+    }
+}
+.product__container {
+    width: 35.8rem;
+    margin: 0 auto;
+    color: #fff;
+}
+@media screen and (min-width: 768px) {
+    .product__container {
+        height: 100%;
+        width: 120rem;
+        padding: 0 5.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: right;
+    }
+    .product__align-right {
+        width: 46.7rem;
+        padding-top: 1rem;
+    }
+}
+.section-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    letter-spacing: 0.1rem;
+}
+.section-title--product {
+    letter-spacing: 0;
+}
+@media screen and (min-width: 768px) {
+    .section-title {
+        font-size: 4.5rem;
+        letter-spacing: 0.2rem;
+    }
+    .section-title--product {
+        font-size: 3.8rem;
+        letter-spacing: 0;
+        text-align: left;
+    }
+}
+.section-description {
+    font-size: 1.6rem;
+    line-height: 1;
+    margin-top: 1.2rem;
+    text-align: center;
+    letter-spacing: 0.1rem;
+}
+.section-description--product {
+    font-size: 2.4rem;
+    margin-top: 1.8rem;
+    letter-spacing: 0;
+}
+@media screen and (min-width: 768px) {
+    .section-description {
+        font-size: 2rem;
+        margin-top: 1.7rem;
+    }
+    .section-description--product {
+        font-size: 2.4rem;
+        text-align: left;
+        letter-spacing: 0;
+    }
+}
+.product__description {
+    margin-top: 1.9rem;
+    font-size: 1.4rem;
+}
+@media screen and (min-width: 768px) {
+    .product__description {
+        margin-top: 2.4rem;
+        width: 42.9rem;
+    }
+}
+
+// MARK:お客様の声
+.voices {
+    height: 57.1rem;
+    padding: 5.4rem 0;
+}
+@media screen and (min-width: 768px) {
+    .voices {
+        height: 61.6rem;
+        padding: 8.7rem 0;
+    }
+}
+.voices__container {
+    width: 35.8rem;
+    margin: 0 auto;
+}
