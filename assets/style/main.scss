@@ -1,7 +1,4 @@
-//-----------------------------------------------------
-// scss: 変数設定
-//-----------------------------------------------------
-
+// ---------- scss: 変数設定 ----------
 // カンプ / コンテンツ幅の指定
 $sp-full-width: 390;        // スマホ用のカンプ幅
 $pc-full-width: 1500;       // PC用のカンプ幅
@@ -11,10 +8,7 @@ $pc-content-width: 1200;    // PC用のカンプのコンテンツ幅(ガイド�
 $breakpoint-md: 768;
 $breakpoint-lg: $pc-content-width;
 
-//-----------------------------------------------------
-//  scss: ブレークポイント関数
-//-----------------------------------------------------
-
+// ---------- scss: ブレークポイント関数 ----------
 $breakpoints: (
     "md": "screen and (min-width: #{$breakpoint-md}px)",
     "lg": "screen and (min-width: #{$breakpoint-lg}px)",
@@ -26,10 +20,7 @@ $breakpoints: (
     }
 }
 
-//-----------------------------------------------------
-//  共通スタイル
-//-----------------------------------------------------
-
+// ---------- 共通スタイル ----------
 html {
 	font-size: calc(10 * 100vw / $sp-full-width);
     scroll-behavior: smooth;
@@ -55,10 +46,10 @@ body {
     font-weight: bold;
     line-height: 1;
     text-align: center;
-    letter-spacing: 0.1rem;
+    letter-spacing: .1rem;
     @include mq() {
         font-size: 4.5rem;
-        letter-spacing: 0.2rem;
+        letter-spacing: .2rem;
     }
 }
 
@@ -67,29 +58,28 @@ body {
     line-height: 1;
     margin-top: 1.2rem;
     text-align: center;
-    letter-spacing: 0.1rem;
+    letter-spacing: .1rem;
     @include mq() {
         font-size: 2rem;
         margin-top: 1.9rem;
-        margin-left: 0.3rem;
+        margin-left: .3rem;
     }
 }
 
-//-----------------------------------------------------
-//  ヘッダー
-//-----------------------------------------------------
+// ---------- ヘッダー ----------
 .header {
     height: 57rem;
     width: 100%;
     background-image: url('/assets/image/img_mainVisual_sp.jpg');
     background-size: 100% 45rem;
     background-position: top left;
-    padding: 2.6rem 2.3em 0.5rem 2.3rem;
+    padding: 2.6rem 2.3em .5rem 2.3rem;
 
     @include mq() {
         height: 72rem;
         background-image: url('/assets/image/img_mainVisual_pc.jpg');
         background-size: cover;
+        background-position: center;
         padding: 3.2rem 2.3em 3.2rem 2.3rem;
     }
 
@@ -126,7 +116,7 @@ body {
         @include mq() {
             width: 40rem;
             position: relative;
-            top: 44.2%;
+            top: 43.6%;
             transform: translateY(-50%);
             left: 7.3rem;
         }
@@ -138,36 +128,35 @@ body {
         letter-spacing: 1.2rem;
         line-height: 1.24;
         font-weight: 400;
-        margin-bottom: 0.9rem;
+        margin-bottom: .9rem;
 
         @include mq() {
             font-size: 5rem;
             letter-spacing: 1.5rem;
             line-height: 1.34;
-            margin-bottom: 0rem;
+            margin-top: .6rem;
+            margin-bottom: 0;
         }
     }
 
     &__description {
         font-size: 2rem;
-        letter-spacing: 0.6rem;
+        letter-spacing: .6rem;
         margin-top: 1.1rem;
+        word-break: keep-all;
 
         @include mq() {
             font-size: 2.5rem;
-            letter-spacing: 0.8rem;
-            letter-spacing: 0.75rem;
+            letter-spacing: .75rem;
             line-height: 2;
-            margin-top: 0.4rem;
+            margin-top: .4rem;
         }
     }
 
 }
 
-//-----------------------------------------------------
-//  メイン
-//-----------------------------------------------------
-// MARK:商品購入
+// ---------- メイン ----------
+// ---------- 商品購入 ----------
 .apply {
     padding: 3.7rem 0 5rem 0;
     @include mq() {
@@ -176,6 +165,7 @@ body {
 
     &--second {
         padding-top: 4.7rem;
+        padding-bottom: 1rem;
         @include mq() {
             padding-top: 5.1rem;
         }
@@ -212,12 +202,12 @@ body {
         font-size: 1.8rem;
         font-weight: 500;
         line-height: 1;
-        letter-spacing: 0.2rem;
+        letter-spacing: .2rem;
 
         @include mq() {
             font-size: 2.4rem;
             line-height: 1;
-            letter-spacing: 0.25rem;
+            letter-spacing: .25rem;
         }
     }
 
@@ -230,7 +220,7 @@ body {
             font-size: 1.6rem;
             line-height: 1;
             margin-top: 1.5rem;
-            letter-spacing: 0.15rem;
+            letter-spacing: .15rem;
             text-align: left;
         }
     }
@@ -257,22 +247,32 @@ body {
     height: 5.8rem;
     border-radius: 2.9rem;
     font-size: 1.8rem;
-    font-weight: semibold;
+    font-weight: 500;
     line-height: 1;
     text-decoration: none;
 
     &--blue {
         background-color: #46c4db;
+        border: 2px solid #46c4db;
         color: #fff;
+        &:hover {
+            background-color: #fff;
+            color: #46c4db;
+        }
     }
 
     &--mint {
         background-color: #5dd5ab;
+        border: 2px solid #5dd5ab;
         color: #fff;
+        &:hover {
+            background-color: #fff;
+            color: #5dd5ab;
+        }
     }
 }
 
-// MARK:商品説明
+// ---------- 商品説明 ----------
 .product {
     height: 68rem;
     width: 100%;
@@ -287,17 +287,17 @@ body {
     }
 
     &__container {
-        width: 35.8rem;
         margin: 0 auto;
         color: #fff;
+        padding: 0 1.6rem;
 
         @include mq() {
+            max-width: 120rem;
             height: 100%;
-            padding: 0.2rem 5.4rem 0 5.2rem;
+            padding: .2rem 5.4rem 0 5.2rem;
             display: flex;
             align-items: center;
             justify-content: right;
-            width: 120rem;
         }
     }
 
@@ -339,7 +339,7 @@ body {
     }
 }
 
-// MARK:お客様の声
+// ---------- お客様の声 ----------
 .voices {
     padding: 5.4rem 1.6rem 4.6rem 1.6rem;
     @include mq() {
@@ -394,7 +394,7 @@ body {
     &__name {
         line-height: 1;
         margin-top: 1.2rem;
-        margin-left: 0.2rem;
+        margin-left: .2rem;
         @include mq() {
             font-size: 1.5rem;
             margin-top: 1.2rem;
@@ -426,12 +426,13 @@ body {
         column-gap: 4rem;
     }
 }
-.slick-prev {
+.slick-prev, .slick-prev:focus, .slick-prev:hover {
     width: 3.2rem;
     height: 3.2rem;
-    background-image: url('/assets/image/icon_arrow_left_circle.svg');
     left: 0;
-    background-size: cover;
+    background-image: url('/assets/image/icon_arrow_left_circle.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
     @include mq() {
         width: 4.8rem;
         height: 4.8rem;
@@ -440,12 +441,13 @@ body {
 .slick-prev:before {
     content: none;
 }
-.slick-next {
+.slick-next, .slick-next:focus, .slick-next:hover {
     width: 3.2rem;
     height: 3.2rem;
-    background-image: url('/assets/image/icon_arrow_right_circle.svg');
     right: 0;
-    background-size: cover;
+    background-image: url('/assets/image/icon_arrow_right_circle.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
     @include mq() {
         width: 4.8rem;
         height: 4.8rem;
@@ -485,7 +487,7 @@ body {
     padding: 3.6rem 1.6rem 3.1rem 1.6rem;
     background-image: linear-gradient(90deg, #f4ffe8, #c6f0fe);
     @include mq() {
-        padding: 4.4rem 1.6rem 3.7rem 1.6rem;
+        padding: 4.4rem 1.6rem 3.9rem 1.6rem;
     }
 
     &__container {
@@ -510,20 +512,27 @@ body {
     &__content {
         list-style: none;
         background-color: #fff;
-        padding: 1.6rem 1.6rem 1.8rem 1.6rem;
         font-size: 1.5rem;
-        @include mq() {
-            padding: 2.1rem 1.6rem 2.1rem 2.3rem;
-        }
     }
 
     &__details {
+        padding-bottom: .5rem;
+        overflow: hidden;
+        @include mq() {
+            padding-bottom: .4rem;
+        }
         &[open] {
+            padding-bottom: 0;
             .questions__question {
                 &:after {
                     transform: rotate(0deg);
-                    transition: transform 0.3s ease;
+                    transition: transform .3s ease;
                 }
+            }
+            .questions__answer {
+                max-height: 50rem;
+                opacity: 1;
+                transition: all .5s ease;
             }
         }
     }
@@ -531,9 +540,12 @@ body {
     &__question {
         display: flex;
         line-height: 1.867;
+        padding: 1.6rem 1.6rem 1.2rem 1.6rem;
+        color: #444;
         @include mq() {
             position: relative;
             cursor: pointer;
+            padding: 2.1rem 1.6rem 1.7rem 2.3rem;
         }
         &::marker {
             content: none;
@@ -543,13 +555,13 @@ body {
             font-family: 'EB Garamond', serif;
             font-size: 1.6rem;
             padding-right: 1.1rem;
-            letter-spacing: 0.1rem;
+            letter-spacing: .1rem;
             line-height: 1;
-            margin-top: 0.7rem;
+            margin-top: .7rem;
             @include mq() {
                 font-size: 1.8rem;
-                margin-top: 0.2rem;
-                margin-left: 0.1rem;
+                margin-top: .4rem;
+                margin-left: .1rem;
                 padding-right: 1.5rem;
             }
         }
@@ -558,31 +570,33 @@ body {
             display: block;
             background-image: url('/assets/image/icon_caret_up.svg');
             transform: rotate(180deg);
-            transition: transform 0.3s ease;
+            transition: transform .3s ease;
             width: 1.6rem;
-            height: 0.645rem;
-            background-size: 1rem 0.645rem;
+            height: .645rem;
+            background-size: 1rem .645rem;
             margin-top: 1.4rem;
             @include mq() {
                 width: 1.3rem;
                 height: 1rem;
                 background-size: 1.3rem;
                 margin-top: 1rem;
+                margin-right: 1.6rem;
                 position: absolute;
-                right: 0.8rem;
+                right: .8rem;
             }
         }
     }
 
     &__answer {
-        margin-top: 1.2rem;
         display: flex;
         line-height: 1.867;
-        padding-bottom: 1.1rem;
+        padding: 0 1.6rem 2.9rem 1.6rem;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: all .5s ease;
         @include mq() {
-            margin-top: 1.6rem;
-            padding-right: 1rem;
-            padding-bottom: 0.3rem;
+            padding: 0 2.4rem 2.1rem 2.3rem;
         }
 
         &:before {
@@ -590,37 +604,43 @@ body {
             font-family: 'EB Garamond', serif;
             font-size: 1.6rem;
             padding-right: 1.1rem;
-            letter-spacing: 0.1rem;
+            letter-spacing: .1rem;
             line-height: 1;
-            margin-top: 0.7rem;
+            margin-top: .7rem;
             @include mq() {
                 font-size: 1.8rem;
-                margin-top: 0.6rem;
-                margin-left: 0.1rem;
+                margin-top: .6rem;
+                margin-left: .1rem;
                 padding-right: 1.5rem;
             }
         }
     }
 }
 
-// フッター
+// ---------- フッター ----------
 .scroll-to-top {
 
     &__wrapper {
         display: flex;
         justify-content: flex-end;
         position: sticky;
-        bottom: 0;
+        bottom: 2rem;
+        max-width: 35.8rem;
+        margin: 0 auto;
+        @include mq() {
+            max-width: 120rem;
+        }
     }
 
     &__button {
         width: 4rem;
         height: 4rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         background-color: #0071ce;
         border: 2px solid #0071ce;
+        display: none;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 4.3rem;
 
         &:hover {
             background-color: #fff;
@@ -676,7 +696,7 @@ body {
     &__link-list {
         display: flex;
         column-gap: 3.2rem;
-        margin-top: 0.4rem;
+        margin-top: .4rem;
         @include mq() {
             margin-top: 0;
             margin-left: 5rem;
@@ -694,12 +714,15 @@ body {
         @include mq() {
             font-size: 1.4rem;
         }
+        &:hover {
+            opacity: .7;
+        }
     }
 }
 .copyright {
     font-size: 1.1rem;
     @include mq() {
         font-size: 1.2rem;
-        margin-top: 0.2rem;
+        margin-top: .2rem;
     }
 }

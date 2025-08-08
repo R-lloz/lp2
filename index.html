@@ -11,17 +11,16 @@
 		<meta property="og:url" content="https://example.com">
 		<meta property="og:site_name" content="Kira-meki">
 		<link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
-		<link rel="stylesheet" href="/assets/style/main.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Marcellus&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+		<link rel="stylesheet" href="/assets/style/main.css">
 	</head>
 	<body>
-		<!------------------------
-		- MARK: ヘッダー
-		-------------------------->
+
+		<!-- ヘッダー -->
 		<header class="header">
 			<div class="header__container">
 				<div class="header__logo-container">
@@ -36,9 +35,7 @@
 			</div>
 		</header>
 
-		<!------------------------
-		- MARK: メインコンテンツ
-		-------------------------->
+		<!-- メインコンテンツ -->
 		<main class="main">
 			<!-- 購入 -->
 			<div class="apply">
@@ -48,8 +45,8 @@
 						<div class="apply__pricing">税込 4,000円</div>
 					</div>
 					<div class="apply__btn-list">
-						<a href="" class="link-btn link-btn--blue">オンラインショップへ</a>
-						<a href="" class="link-btn link-btn--mint">購入する</a>
+						<a href="#" class="link-btn link-btn--blue">オンラインショップへ</a>
+						<form action="/cart" method="post"><button type="submit" class="link-btn link-btn--mint">購入する</button></form>
 					</div>
 				</div>
 			</div>
@@ -58,7 +55,7 @@
 				<div class="product__container">
 					<div class="product__align-right">
 						<h2 class="section-title section-title--product">Keep Your Skin Beautiful.</h2>
-						<div class="section-description section-description--product">お肌を美しく保つ</div>
+						<p class="section-description section-description--product">お肌を美しく保つ</p>
 						<p class="product__description">
 							ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
 						</p>
@@ -69,7 +66,7 @@
 			<section class="voices">
 				<div class="voices__container">
 					<h2 class="section-title">Voices</h2>
-					<div class="section-description">お客様の声</div>
+					<p class="section-description">お客様の声</p>
 					<ul id="js-voices-carousel" class="voices__carousel">
 						<li class="voices__card">
 							<picture>
@@ -126,10 +123,10 @@
 			<section class="questions">
 				<div class="questions__container">
 					<h2 class="section-title">Q&A</h2>
-					<div class="section-description">よくあるご質問</div>
+					<p class="section-description">よくあるご質問</p>
 					<ul class="questions__list">
 						<li class="questions__content">
-							<details class="questions__details" open>
+							<details class="questions__details">
 								<summary class="questions__question">テキストが入ります。テキストが入ります。テキストが入ります。</summary>
 								<div class="questions__answer">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</div>
 							</details>
@@ -169,29 +166,27 @@
 						<div class="apply__pricing">税込 4,000円</div>
 					</div>
 					<div class="apply__btn-list">
-						<a href="" class="link-btn link-btn--blue">オンラインショップへ</a>
-						<a href="" class="link-btn link-btn--mint">購入する</a>
+						<a href="#" class="link-btn link-btn--blue">オンラインショップへ</a>
+						<form action="/cart" method="post"><button type="submit" class="link-btn link-btn--mint">購入する</button></form>
 					</div>
 				</div>
 			</div>
 		</main>
 
-		<!------------------------
-		- MARK: フッター
-		-------------------------->
+		<!-- フッター -->
 		<div class="scroll-to-top__wrapper">
 			<a id="js-scroll-to-top-btn" class="scroll-to-top__button" href="#">
-				<img src="/assets/image/icon_arrow_up_white.svg" alt="TOPへ" class="scroll-to-top__img scroll-to-top__img--default" />
-				<img src="/assets/image/icon_arrow_up_blue.svg" alt="TOPへ" class="scroll-to-top__img scroll-to-top__img--hover" />
+				<img src="/assets/image/icon_arrow_up_white.svg" alt="TOPへ" class="scroll-to-top__img scroll-to-top__img--default">
+				<img src="/assets/image/icon_arrow_up_blue.svg" alt="TOPへ" class="scroll-to-top__img scroll-to-top__img--hover">
 			</a>
 		</div>
 		<footer class="footer">
 			<div class="footer__container">
 				<img src="/assets/image/logo_white.svg" alt="Kira-meki" class="footer__logo">
 				<ul class="footer__link-list">
-					<li class="footer__link-content"><a class="footer__link" href="">会社概要</a></li>
-					<li class="footer__link-content"><a class="footer__link" href="">個人情報保護ポリシー</a></li>
-					<li class="footer__link-content"><a class="footer__link" href="">お問い合わせ</a></li>
+					<li class="footer__link-content"><a class="footer__link" href="/company/">会社概要</a></li>
+					<li class="footer__link-content"><a class="footer__link" href="/privacy-policy/">個人情報保護ポリシー</a></li>
+					<li class="footer__link-content"><a class="footer__link" href="/contact/">お問い合わせ</a></li>
 				</ul>
 				<div class="copyright">© 2023 Kira-meki Inc. All rights reserved.</div>
 			</div>
