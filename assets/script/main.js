@@ -1,26 +1,43 @@
 'use strict';
 
 $(document).ready(function () {
-	// メニューボタン
-	$('#js-menu-btn').on('click', function (e) {
-		e.preventDefault();
-		$('#js-drawer').slideToggle();
+	// カルーセル
+	$('#js-voices-carousel').slick({
+		dots: true,
+		slidesToShow: 3,
+		slidesToScroll: 3,
+		responsive: [{
+			breakpoint: 767,
+			settings: {
+				slidesToShow: 1,
+				slidesToScroll: 1,
+			}
+		}]
 	});
-	$(document).on('click', function (e) {
-		if (!$(e.target).closest('#js-drawer, .header__menu-btn').length) {
-			if($('#js-drawer').is(':visible')) $('#js-drawer').slideToggle();
-		}
-	});
-	$('#js-drawer a').on('click', function () {
-		$('#js-drawer').slideToggle();
-	});
+	// if (window.matchMedia('(min-width: 768px)').matches) {
+	// 	$('#js-voices-carousel').slick({
+	// 		dots: true,
+	// 		slidesToShow: 3,
+	// 		slidesToScroll: 3,
+	// 		responsive: [{
+	// 			breakpoint: 767,
+	// 			settings: {
+	// 				slidesToShow: 1
+	// 			}
+	// 		}]
+	// 	});
+	// } else {
+	// 	$('#js-voices-carousel').slick({
+	// 		dots: true,
+	// 	});
+	// }
 
-	// タブ切り替え
-	const $tabs = $('.target__tab');
-	$tabs.on('click', function() {
-			$('.active').removeClass('active');
-			$(this).addClass('active');
-			const index = $tabs.index(this);
-			$('.target__content').removeClass('show').eq(index).addClass('show');
+	// スクロールボタン表示制御
+	$(window).scroll(function() {
+		if($(this).scrollTop()) {
+			$('#js-scroll-to-top-btn').show();
+		}else{
+			$('#js-scroll-to-top-btn').hide();
+		}
 	});
 });

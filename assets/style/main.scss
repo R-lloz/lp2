@@ -1,182 +1,254 @@
-html {
-	font-size: calc(10 * 100vw / 390);
-    scroll-behavior: smooth;
-}
-@media (min-width: 768px) {
-    html {
-    	font-size: calc(10 * 100vw / 1200);
+//-----------------------------------------------------
+// scss: 変数設定
+//-----------------------------------------------------
+
+// カンプ / コンテンツ幅の指定
+$sp-full-width: 390;        // スマホ用のカンプ幅
+$pc-full-width: 1500;       // PC用のカンプ幅
+$pc-content-width: 1200;    // PC用のカンプのコンテンツ幅(ガイド線の幅)
+
+// ブレークポイント設定
+$breakpoint-md: 768;
+$breakpoint-lg: $pc-content-width;
+
+//-----------------------------------------------------
+//  scss: ブレークポイント関数
+//-----------------------------------------------------
+
+$breakpoints: (
+    "md": "screen and (min-width: #{$breakpoint-md}px)",
+    "lg": "screen and (min-width: #{$breakpoint-lg}px)",
+) !default;
+
+@mixin mq($breakpoint: md) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
     }
 }
-@media (min-width: 1200px) {
-    html {
+
+//-----------------------------------------------------
+//  共通スタイル
+//-----------------------------------------------------
+
+html {
+	font-size: calc(10 * 100vw / $sp-full-width);
+    scroll-behavior: smooth;
+
+    @include mq() {
+        font-size: calc(10 * 100vw / $pc-content-width);
+    }
+
+    @include mq(lg) {
         font-size: 62.5%;
     }
 }
+
 body {
     font-family: 'Noto Serif JP', serif;
     color: #000;
     line-height: 2.286;
 }
 
-// =====================================================================
-// MARK:ヘッダー
-// =====================================================================
-.header {
-    height: 54.8rem;
-}
-@media screen and (min-width: 768px) {
-    .header {
-        height: 72rem;
-    }
-    .header__container {
-        position: relative;
-    }
-}
-.header__cover {
-    height: 45rem;
-    background-image: url('/assets/image/img_mainVisual_sp.jpg');
-    background-position: center;
-    background-size: cover;
-    padding-top: 2.6rem;
-}
-@media screen and (min-width: 768px) {
-    .header__cover {
-        height: 72rem;
-        background-image: url('/assets/image/img_mainVisual_pc.jpg');
-        padding-top: 3.2rem;
-    }
-}
-.header__logo-container {
-    display: block;
+.section-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1;
     text-align: center;
-}
-.header__logo {
-    width: 14rem;
-    height: 2.4rem;;
-}
-@media screen and (min-width: 768px) {
-    .header__logo {
-        width: 16.2rem;
-        height: 3.4rem;
-    }
-}
-.header__content {
-    margin-top: -3.1rem;
-    padding-left: 2.3rem;
-}
-@media screen and (min-width: 768px) {
-    .header__content {
-        width: 120rem;
-        margin: -45rem auto 0;
-        padding-left: 7.3rem;
-    }
-}
-.header__title {
-    font-family: 'Marcellus', serif;
-    font-size: 4.1rem;
-    letter-spacing: 1.2rem;
-    line-height: 1.24;
-}
-@media screen and (min-width: 768px) {
-    .header__title {
-        font-size: 5rem;
-        letter-spacing: 1.5rem;
-        line-height: 1.34;
-    }
-}
-.header__description {
-    font-size: 2rem;
-    letter-spacing: 0.6rem;
-}
-@media screen and (min-width: 768px) {
-    .header__description {
-        font-size: 2.5rem;
-        letter-spacing: 0.8rem;
-        letter-spacing: 0.75rem;
-        line-height: 2;
+    letter-spacing: 0.1rem;
+    @include mq() {
+        font-size: 4.5rem;
+        letter-spacing: 0.2rem;
     }
 }
 
-// =====================================================================
-// MARK:メイン
-// =====================================================================
-// MARK:商品購入
-.apply {
-    height: 37rem;
-    padding: 5.8rem 0 5rem 0;
-}
-@media screen and (min-width: 768px) {
-    .apply {
-        height: 24.3rem;
-        padding: 5rem 0 5rem 0;
-    }
-}
-.apply__container {
-    height: 100%;
-    width: 35.8rem;
-    margin: 0 auto;
-    padding: 2.5rem 0 3.4rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f0f4ff;
-}
-.apply__product {
-    text-align: center;
-}
-@media screen and (min-width: 768px) {
-    .apply__container {
-        width: 100rem;
-        padding: 0 4.8rem;
-        flex-direction: row;
-        align-items: center;
-        column-gap: 6rem;
-    }
-    .apply__product {
-        display: flex;
-        flex-direction: column;
-    }
-}
-.apply__product-name {
-    font-size: 1.8rem;
-    font-weight: semibold;
-    line-height: 1;
-    letter-spacing: 0.2rem;
-}
-@media screen and (min-width: 768px) {
-    .apply__product-name {
-        font-size: 2.4rem;
-        line-height: 1;
-        letter-spacing: 0.25rem;
-    }
-}
-.apply__pricing {
+.section-description {
     font-size: 1.6rem;
     line-height: 1;
-    margin-top: 1.1rem;
+    margin-top: 1.2rem;
+    text-align: center;
+    letter-spacing: 0.1rem;
+    @include mq() {
+        font-size: 2rem;
+        margin-top: 1.9rem;
+        margin-left: 0.3rem;
+    }
 }
-@media screen and (min-width: 768px) {
-    .apply__pricing {
+
+//-----------------------------------------------------
+//  ヘッダー
+//-----------------------------------------------------
+.header {
+    height: 57rem;
+    width: 100%;
+    background-image: url('/assets/image/img_mainVisual_sp.jpg');
+    background-size: 100% 45rem;
+    background-position: top left;
+    padding: 2.6rem 2.3em 0.5rem 2.3rem;
+
+    @include mq() {
+        height: 72rem;
+        background-image: url('/assets/image/img_mainVisual_pc.jpg');
+        background-size: cover;
+        padding: 3.2rem 2.3em 3.2rem 2.3rem;
+    }
+
+    &__container {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        @include mq() {
+            max-width: 120rem;
+            margin: 0 auto;
+            display: block;
+        }
+    }
+
+    &__logo-container {
+        text-align: center;
+    }
+
+    &__logo {
+        width: 14rem;
+        height: 2.4rem;
+
+        @include mq() {
+            width: 16.2rem;
+            height: 3.4rem;
+        }
+    }
+
+    &__content {
+        width: 30rem;
+
+        @include mq() {
+            width: 40rem;
+            position: relative;
+            top: 44.2%;
+            transform: translateY(-50%);
+            left: 7.3rem;
+        }
+    }
+
+    &__title {
+        font-family: 'Marcellus', serif;
+        font-size: 4.1rem;
+        letter-spacing: 1.2rem;
+        line-height: 1.24;
+        font-weight: 400;
+        margin-bottom: 0.9rem;
+
+        @include mq() {
+            font-size: 5rem;
+            letter-spacing: 1.5rem;
+            line-height: 1.34;
+            margin-bottom: 0rem;
+        }
+    }
+
+    &__description {
+        font-size: 2rem;
+        letter-spacing: 0.6rem;
+        margin-top: 1.1rem;
+
+        @include mq() {
+            font-size: 2.5rem;
+            letter-spacing: 0.8rem;
+            letter-spacing: 0.75rem;
+            line-height: 2;
+            margin-top: 0.4rem;
+        }
+    }
+
+}
+
+//-----------------------------------------------------
+//  メイン
+//-----------------------------------------------------
+// MARK:商品購入
+.apply {
+    padding: 3.7rem 0 5rem 0;
+    @include mq() {
+        padding: 5rem 0 5rem 0;
+    }
+
+    &--second {
+        padding-top: 4.7rem;
+        @include mq() {
+            padding-top: 5.1rem;
+        }
+    }
+
+    &__container {
+        max-width: 35.8rem;
+        margin: 0 auto;
+        padding: 2.5rem 0 3.4rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f0f4ff;
+
+        @include mq() {
+            max-width: 100rem;
+            padding: 4.2rem 4.8rem 4.2rem 4.8rem;
+            flex-direction: row;
+            align-items: center;
+            column-gap: 6rem;
+        }
+    }
+
+    &__product {
+        text-align: center;
+
+        @include mq() {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__product-name {
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: 0.2rem;
+
+        @include mq() {
+            font-size: 2.4rem;
+            line-height: 1;
+            letter-spacing: 0.25rem;
+        }
+    }
+
+    &__pricing {
         font-size: 1.6rem;
         line-height: 1;
-        margin-top: 1.5rem;
-        letter-spacing: 0.15rem;
-        text-align: left;
+        margin-top: 1rem;
+
+        @include mq() {
+            font-size: 1.6rem;
+            line-height: 1;
+            margin-top: 1.5rem;
+            letter-spacing: 0.15rem;
+            text-align: left;
+        }
+    }
+
+    &__btn-list {
+        margin-top: 2.2rem;
+        display: flex;
+        flex-direction: column;
+        row-gap: 2rem;
+
+        @include mq() {
+            flex-direction: row;
+            column-gap: 3.2rem;
+            margin-top: 0rem;
+        }
     }
 }
-.apply__btn-list {
-    margin-top: 2.3rem;
-    display: flex;
-    flex-direction: column;
-    row-gap: 2rem;
-}
-@media screen and (min-width: 768px) {
-    .apply__btn-list {
-        flex-direction: row;
-        column-gap: 3.2rem;
-        margin-top: 0rem;
-    }
-}
+
 .link-btn {
     display: flex;
     justify-content: center;
@@ -188,14 +260,16 @@ body {
     font-weight: semibold;
     line-height: 1;
     text-decoration: none;
-}
-.link-btn--blue {
-    background-color: #46c4db;
-    color: #fff;
-}
-.link-btn--mint {
-    background-color: #5dd5ab;
-    color: #fff;
+
+    &--blue {
+        background-color: #46c4db;
+        color: #fff;
+    }
+
+    &--mint {
+        background-color: #5dd5ab;
+        color: #fff;
+    }
 }
 
 // MARK:商品説明
@@ -206,101 +280,426 @@ body {
     background-image: url('/assets/image/img_product_sp.jpg');
     background-position: center;
     background-size: cover;
-}
-@media screen and (min-width: 768px) {
-    .product {
+    @include mq() {
         height: 55rem;
         background-image: url('/assets/image/img_product_pc.jpg');
         padding-top: 0;
     }
-}
-.product__container {
-    width: 35.8rem;
-    margin: 0 auto;
-    color: #fff;
-}
-@media screen and (min-width: 768px) {
-    .product__container {
-        height: 100%;
-        width: 120rem;
-        padding: 0 5.2rem;
-        display: flex;
-        align-items: center;
-        justify-content: right;
+
+    &__container {
+        width: 35.8rem;
+        margin: 0 auto;
+        color: #fff;
+
+        @include mq() {
+            height: 100%;
+            padding: 0.2rem 5.4rem 0 5.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            width: 120rem;
+        }
     }
-    .product__align-right {
-        width: 46.7rem;
-        padding-top: 1rem;
+
+    &__align-right {
+        @include mq() {
+            width: 46.7rem;
+            padding-top: 1rem;
+        }
+    }
+
+    &__description {
+        margin-top: 1.9rem;
+        font-size: 1.4rem;
+        @include mq() {
+            margin-top: 2.4rem;
+            width: 42.9rem;
+        }
     }
 }
-.section-title {
-    font-family: 'EB Garamond', serif;
-    font-size: 3rem;
-    font-weight: bold;
-    line-height: 1;
-    text-align: center;
-    letter-spacing: 0.1rem;
-}
+
 .section-title--product {
     letter-spacing: 0;
-}
-@media screen and (min-width: 768px) {
-    .section-title {
-        font-size: 4.5rem;
-        letter-spacing: 0.2rem;
-    }
-    .section-title--product {
+    @include mq() {
         font-size: 3.8rem;
         letter-spacing: 0;
         text-align: left;
     }
 }
-.section-description {
-    font-size: 1.6rem;
-    line-height: 1;
-    margin-top: 1.2rem;
-    text-align: center;
-    letter-spacing: 0.1rem;
-}
+
 .section-description--product {
     font-size: 2.4rem;
     margin-top: 1.8rem;
     letter-spacing: 0;
-}
-@media screen and (min-width: 768px) {
-    .section-description {
-        font-size: 2rem;
-        margin-top: 1.7rem;
-    }
-    .section-description--product {
+    @include mq() {
         font-size: 2.4rem;
         text-align: left;
         letter-spacing: 0;
-    }
-}
-.product__description {
-    margin-top: 1.9rem;
-    font-size: 1.4rem;
-}
-@media screen and (min-width: 768px) {
-    .product__description {
-        margin-top: 2.4rem;
-        width: 42.9rem;
+        margin-left: 0;
     }
 }
 
 // MARK:お客様の声
 .voices {
-    height: 57.1rem;
-    padding: 5.4rem 0;
-}
-@media screen and (min-width: 768px) {
-    .voices {
-        height: 61.6rem;
-        padding: 8.7rem 0;
+    padding: 5.4rem 1.6rem 4.6rem 1.6rem;
+    @include mq() {
+        padding: 8.7rem 2.2rem 8.7rem 2.2rem;
+    }
+
+    &__container {
+        max-width: 35.8rem;
+        margin: 0 auto;
+
+        @include mq() {
+            max-width: 115.6rem;
+        }
+    }
+
+    &__carousel {
+        margin-top: 3.9rem;
+        display: flex;
+        justify-content: center;
+        @include mq() {
+            margin-top: 4.3rem;
+        }
+    }
+
+    &__card {
+        width: 28rem;
+        height: 34.4rem;
+        padding: 2.8rem 1.5rem 2.8rem 1.5rem;
+        list-style: none;
+        background-color: #dbf7f9;
+        justify-items: center;
+        font-size: 1.4rem;
+        @include mq() {
+            width: 30rem;
+            height: 38.8rem;
+            padding: 4rem 1.6rem 4rem 1.6rem;
+        }
+    }
+
+    &__photo {
+        width: 8rem;
+        height: 8rem;
+        justify-self: center;
+        margin-left: 1rem;
+        @include mq() {
+            width: 10rem;
+            height: 10rem;
+            margin-left: 0;
+        }
+    }
+
+    &__name {
+        line-height: 1;
+        margin-top: 1.2rem;
+        margin-left: 0.2rem;
+        @include mq() {
+            font-size: 1.5rem;
+            margin-top: 1.2rem;
+            margin-left: 0rem;
+        }
+    }
+
+    &__comment {
+        text-align: left;
+        line-height: 2;
+        margin-top: 1.9rem;
+        @include mq() {
+            font-size: 1.6rem;
+            margin-top: 1.6rem;
+            line-height: 1.75;
+        }
     }
 }
-.voices__container {
-    width: 35.8rem;
-    margin: 0 auto;
+
+// カルーセル（slick）
+.slick-list {
+    width: 28rem;
+    height: 34.4rem;
+    @include mq() {
+        width: 102rem;
+        height: 38.8rem;
+        display: flex;
+        flex-direction: column;
+        column-gap: 4rem;
+    }
+}
+.slick-prev {
+    width: 3.2rem;
+    height: 3.2rem;
+    background-image: url('/assets/image/icon_arrow_left_circle.svg');
+    left: 0;
+    background-size: cover;
+    @include mq() {
+        width: 4.8rem;
+        height: 4.8rem;
+    }
+}
+.slick-prev:before {
+    content: none;
+}
+.slick-next {
+    width: 3.2rem;
+    height: 3.2rem;
+    background-image: url('/assets/image/icon_arrow_right_circle.svg');
+    right: 0;
+    background-size: cover;
+    @include mq() {
+        width: 4.8rem;
+        height: 4.8rem;
+    }
+}
+.slick-next:before {
+    content: none;
+}
+.slick-slide {
+    @include mq() {
+        padding: 0 2rem;
+    }
+}
+.slick-dots {
+    bottom: -3rem;
+    @include mq() {
+        bottom: -3.8rem;
+    }
+}
+.slick-dots li {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin: 0;
+}
+.slick-dots li.slick-active button:before {
+    color: #00afbf;
+    opacity: 1;
+}
+.slick-dots li button:before{
+    font-size: 1.1rem;
+    color: #eee;
+    opacity: 1;
+}
+
+// よくあるご質問
+.questions {
+    padding: 3.6rem 1.6rem 3.1rem 1.6rem;
+    background-image: linear-gradient(90deg, #f4ffe8, #c6f0fe);
+    @include mq() {
+        padding: 4.4rem 1.6rem 3.7rem 1.6rem;
+    }
+
+    &__container {
+        @include mq() {
+            max-width: 120rem;
+            margin: 0 auto;
+            padding: 0 30rem;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 2rem;
+        margin-top: 4.1rem;
+        @include mq() {
+            row-gap: 2.5rem;
+            margin-top: 4.5rem;
+        }
+    }
+
+    &__content {
+        list-style: none;
+        background-color: #fff;
+        padding: 1.6rem 1.6rem 1.8rem 1.6rem;
+        font-size: 1.5rem;
+        @include mq() {
+            padding: 2.1rem 1.6rem 2.1rem 2.3rem;
+        }
+    }
+
+    &__details {
+        &[open] {
+            .questions__question {
+                &:after {
+                    transform: rotate(0deg);
+                    transition: transform 0.3s ease;
+                }
+            }
+        }
+    }
+
+    &__question {
+        display: flex;
+        line-height: 1.867;
+        @include mq() {
+            position: relative;
+            cursor: pointer;
+        }
+        &::marker {
+            content: none;
+        }
+        &:before {
+            content: "Q.";
+            font-family: 'EB Garamond', serif;
+            font-size: 1.6rem;
+            padding-right: 1.1rem;
+            letter-spacing: 0.1rem;
+            line-height: 1;
+            margin-top: 0.7rem;
+            @include mq() {
+                font-size: 1.8rem;
+                margin-top: 0.2rem;
+                margin-left: 0.1rem;
+                padding-right: 1.5rem;
+            }
+        }
+        &:after {
+            content: "";
+            display: block;
+            background-image: url('/assets/image/icon_caret_up.svg');
+            transform: rotate(180deg);
+            transition: transform 0.3s ease;
+            width: 1.6rem;
+            height: 0.645rem;
+            background-size: 1rem 0.645rem;
+            margin-top: 1.4rem;
+            @include mq() {
+                width: 1.3rem;
+                height: 1rem;
+                background-size: 1.3rem;
+                margin-top: 1rem;
+                position: absolute;
+                right: 0.8rem;
+            }
+        }
+    }
+
+    &__answer {
+        margin-top: 1.2rem;
+        display: flex;
+        line-height: 1.867;
+        padding-bottom: 1.1rem;
+        @include mq() {
+            margin-top: 1.6rem;
+            padding-right: 1rem;
+            padding-bottom: 0.3rem;
+        }
+
+        &:before {
+            content: "A.";
+            font-family: 'EB Garamond', serif;
+            font-size: 1.6rem;
+            padding-right: 1.1rem;
+            letter-spacing: 0.1rem;
+            line-height: 1;
+            margin-top: 0.7rem;
+            @include mq() {
+                font-size: 1.8rem;
+                margin-top: 0.6rem;
+                margin-left: 0.1rem;
+                padding-right: 1.5rem;
+            }
+        }
+    }
+}
+
+// フッター
+.scroll-to-top {
+
+    &__wrapper {
+        display: flex;
+        justify-content: flex-end;
+        position: sticky;
+        bottom: 0;
+    }
+
+    &__button {
+        width: 4rem;
+        height: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #0071ce;
+        border: 2px solid #0071ce;
+
+        &:hover {
+            background-color: #fff;
+
+            .scroll-to-top__img--default {
+                display: none;
+            }
+            .scroll-to-top__img--hover {
+                display: inline;
+            }
+        }
+    }
+    &__img {
+        width: 1.4rem;
+        height: 1.6rem;
+    }
+
+    &__img--hover {
+        display: none;
+    }
+}
+.footer {
+    background-color: #0071ce;
+
+    &__container {
+        max-width: 35.7rem;
+        margin: 0 auto;
+        padding: 2.4rem 2rem 2.4rem 2rem;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 1.6rem;
+        @include mq() {
+            max-width: 120rem;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 3.2rem 3.2rem 3.2rem 3.2rem;
+        }
+    }
+
+    &__logo {
+        width: 16.6rem;
+        height: 3.5rem;
+        display: block;
+        @include mq() {
+            width: 19rem;
+            height: 4rem;
+        }
+    }
+
+    &__link-list {
+        display: flex;
+        column-gap: 3.2rem;
+        margin-top: 0.4rem;
+        @include mq() {
+            margin-top: 0;
+            margin-left: 5rem;
+        }
+    }
+
+    &__link-content {
+        list-style: none;
+    }
+
+    &__link {
+        color: inherit;
+        text-decoration: none;
+        font-size: 1.2rem;
+        @include mq() {
+            font-size: 1.4rem;
+        }
+    }
+}
+.copyright {
+    font-size: 1.1rem;
+    @include mq() {
+        font-size: 1.2rem;
+        margin-top: 0.2rem;
+    }
 }
