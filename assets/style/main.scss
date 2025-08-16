@@ -1,4 +1,4 @@
-// ---------- scss: 変数設定 ----------
+// /* scss: 変数設定 */
 // カンプ / コンテンツ幅の指定
 $sp-full-width: 390;        // スマホ用のカンプ幅
 $pc-full-width: 1500;       // PC用のカンプ幅
@@ -8,7 +8,7 @@ $pc-content-width: 1200;    // PC用のカンプのコンテンツ幅(ガイド�
 $breakpoint-md: 768;
 $breakpoint-lg: $pc-content-width;
 
-// ---------- scss: ブレークポイント関数 ----------
+// /* scss: ブレークポイント関数 */
 $breakpoints: (
     "md": "screen and (min-width: #{$breakpoint-md}px)",
     "lg": "screen and (min-width: #{$breakpoint-lg}px)",
@@ -20,7 +20,7 @@ $breakpoints: (
     }
 }
 
-// ---------- 共通スタイル ----------
+/* 共通スタイル */
 html {
 	font-size: calc(10 * 100vw / $sp-full-width);
     scroll-behavior: smooth;
@@ -66,18 +66,18 @@ body {
     }
 }
 
-// ---------- ヘッダー ----------
+/* ヘッダー */
 .header {
     height: 57rem;
     width: 100%;
-    background-image: url('/assets/image/img_mainVisual_sp.jpg');
+    background-image: url('/assets/image/img_main_visual_sp.jpg');
     background-size: 100% 45rem;
     background-position: top left;
     padding: 2.6rem 2.3em .5rem 2.3rem;
 
     @include mq() {
         height: 72rem;
-        background-image: url('/assets/image/img_mainVisual_pc.jpg');
+        background-image: url('/assets/image/img_main_visual_pc.jpg');
         background-size: cover;
         background-position: center;
         padding: 3.2rem 2.3em 3.2rem 2.3rem;
@@ -128,7 +128,7 @@ body {
         letter-spacing: 1.2rem;
         line-height: 1.24;
         font-weight: 400;
-        margin-bottom: .9rem;
+        margin-bottom: 1.3rem;
 
         @include mq() {
             font-size: 5rem;
@@ -140,23 +140,26 @@ body {
     }
 
     &__description {
+        font-family: 'Noto Serif JP', serif;
         font-size: 2rem;
         letter-spacing: .6rem;
-        margin-top: 1.1rem;
+        margin-top: 1.2rem;
         word-break: keep-all;
+        display: block;
+        line-height: 1;
 
         @include mq() {
             font-size: 2.5rem;
             letter-spacing: .75rem;
-            line-height: 2;
-            margin-top: .4rem;
+            line-height: 2.2;
+            margin-top: 0;
         }
     }
 
 }
 
-// ---------- メイン ----------
-// ---------- 商品購入 ----------
+/* メイン */
+/* 商品購入 */
 .apply {
     padding: 3.7rem 0 5rem 0;
     @include mq() {
@@ -164,7 +167,7 @@ body {
     }
 
     &--second {
-        padding-top: 4.7rem;
+        padding-top: 5rem;
         padding-bottom: 1rem;
         @include mq() {
             padding-top: 5.1rem;
@@ -219,7 +222,7 @@ body {
         @include mq() {
             font-size: 1.6rem;
             line-height: 1;
-            margin-top: 1.5rem;
+            margin-top: 1.6rem;
             letter-spacing: .15rem;
             text-align: left;
         }
@@ -272,7 +275,7 @@ body {
     }
 }
 
-// ---------- 商品説明 ----------
+/* 商品説明 */
 .product {
     height: 68rem;
     width: 100%;
@@ -339,7 +342,7 @@ body {
     }
 }
 
-// ---------- お客様の声 ----------
+/* お客様の声 */
 .voices {
     padding: 5.4rem 1.6rem 4.6rem 1.6rem;
     @include mq() {
@@ -557,7 +560,7 @@ body {
             padding-right: 1.1rem;
             letter-spacing: .1rem;
             line-height: 1;
-            margin-top: .7rem;
+            margin-top: .6rem;
             @include mq() {
                 font-size: 1.8rem;
                 margin-top: .4rem;
@@ -590,7 +593,7 @@ body {
     &__answer {
         display: flex;
         line-height: 1.867;
-        padding: 0 1.6rem 2.9rem 1.6rem;
+        padding: 0 1.6rem 3.1rem 1.6rem;
         max-height: 0;
         opacity: 0;
         overflow: hidden;
@@ -617,7 +620,7 @@ body {
     }
 }
 
-// ---------- フッター ----------
+/* フッター */
 .scroll-to-top {
 
     &__wrapper {
@@ -684,22 +687,23 @@ body {
     }
 
     &__logo {
-        width: 16.6rem;
+        width: 16.3rem;
         height: 3.5rem;
         display: block;
         @include mq() {
-            width: 19rem;
+            width: 18.8rem;
             height: 4rem;
         }
     }
 
     &__link-list {
         display: flex;
-        column-gap: 3.2rem;
+        column-gap: 3rem;
         margin-top: .4rem;
         @include mq() {
             margin-top: 0;
-            margin-left: 5rem;
+            margin-left: 5.2rem;
+            column-gap: 3.2rem;
         }
     }
 
@@ -721,6 +725,8 @@ body {
 }
 .copyright {
     font-size: 1.1rem;
+    margin-top: .6rem;
+    line-height: 1;
     @include mq() {
         font-size: 1.2rem;
         margin-top: .2rem;
